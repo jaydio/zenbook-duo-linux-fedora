@@ -14,6 +14,7 @@ A script to manage features on the Zenbook Duo.
 | Reset Airplane mode when keyboard removed/placed (handles issue where Ubuntu toggles it on/off) | ✅ | |
 | Keyboard backlight set on boot and/or keyboard placed | ✅ | |
 | Checks for correct state on boot/resume (from suspend and hibernate)| ✅ | |
+| Auto rotation | ✅ | |
 | Keyboard backlight when keyboard off | | ❌ |
 | Keyboard function keys (some work in BT mode) | | ❌ |
 
