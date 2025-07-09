@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#set -x
+
 # Default backlight (0-3)
 DEFAULT_BACKLIGHT=1
 
