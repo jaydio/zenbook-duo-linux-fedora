@@ -15,8 +15,8 @@ A script to manage features on the Zenbook Duo.
 | Keyboard backlight set on boot and/or keyboard placed | ✅ | |
 | Checks for correct state on boot/resume (from suspend and hibernate)| ✅ | |
 | Auto rotation | ✅ | |
-| Keyboard backlight when keyboard off | | ❌ |
-| Keyboard function keys (some work in BT mode) | | ❌ |
+| Keyboard backlight when keyboard connected via BT | | ❌ |
+| Keyboard function keys (none seem to work in BT mode) | | ❌ |
 
 ## Tested on
 
@@ -26,9 +26,7 @@ The following models and operating systems have been validated by users
     - 2025 Zenbook Duo (UX8406CA)
 
 - **Distros**
-    - Ubunutu 25.10
-
-While I typicaly recommend Debian installs, and many items worked out of the box with `debian-backports`, Ubuntu 25.10 has so far proven to be the best option for compatibility of newer hardware, such as the Bluetooth module. Once Backports incorporates kernel 6.14, I may personally redo testing in Debian Bookworm.
+    - Fedora 42
 
 ## Install
 
@@ -42,4 +40,9 @@ What would you like to use for monitor scale (1 = 100%, 1.5 = 150%, 2=200%) [1-2
 <watch it install>
 ```
 
-This will set up the required systemd scripts to handle all the above functionality. A log file will be created in `/tmp/duo/` when the services are running.
+**Notes:**
+
+1. Review the `setup.sh` and `duo.sh` scripts before proceeding with installation.
+2. After installation is complete, log out and log back into your user session for changes to take effect. Alternatively, reboot your machine, ensuring the keyboard is connected during boot.
+
+This will configure the necessary systemd scripts to manage the functionality described above. A log file will be generated in `/tmp/duo/` while the services are active.
