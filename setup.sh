@@ -16,16 +16,25 @@ fi
 if [ "${DEV_MODE}" = false ]; then
     read -p "What would you like to use for the default keyboard backlight brightness [0-3]? " DEFAULT_BRIGHTNESS
     read -p "What would you like to use for monitor scale (1 = 100%, 1.5 = 150%, 2=200%) [1-2]? " DEFAULT_SCALE
-    sudo apt install -y \
-        inotify-tools \
-        usbutils \
-        mutter-common-bin \
-        iio-sensor-proxy \
-        python3-usb
+    sudo dnf install -y \
+    inotify-tools \
+    usbutils \
+    python3-pyusb \
+    iio-sensor-proxy \
+    NetworkManager \
+    gnome-settings-daemon \
+    rfkill \
+    gdb \
+    coreutils \
+    dbus-tools \
+    notify-send
+
+    # mutter-common-bin does not exist in Fedora, so this line is omitted.
+
     sudo mkdir -p /usr/local/bin
     sudo cp ./duo.sh ${INSTALL_LOCATION}
     sudo chmod a+x ${INSTALL_LOCATION}
-    sudo sed -i "s/DEFAULT_BACKLIGHT=1/DEFAULT_BACKLIGHT=${DEFAULT_BACKLIGHT}/g" ${INSTALL_LOCATION}
+    sudo sed -i "s/DEFAULT_BACKLIGHT=1/DEFAULT_BACKLIGHT=${DEFAULT_BRIGHTNESS}/g" ${INSTALL_LOCATION}
     sudo sed -i "s/DEFAULT_SCALE=1/DEFAULT_SCALE=${DEFAULT_SCALE}/g" ${INSTALL_LOCATION}
 fi
 
